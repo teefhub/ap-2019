@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controller.BuildController"    
+      spacing="10" prefWidth="500.0"
+      styleClass="root">
+	<stylesheets>
+		<URL value="@computerbuilder.css" />
+	</stylesheets>
+        <TableView fx:id="partsTv" styleClass="heading" prefWidth="300">
+            <placeholder><Label text = "No parts in current build."/></placeholder>
+            <columns>
+                <TableColumn text="Type">
+                    <cellValueFactory><PropertyValueFactory property="type"/></cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Name">
+                    <cellValueFactory><PropertyValueFactory property="name"/></cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="priceClm" text="Price">
+                    <cellValueFactory><PropertyValueFactory property="price"/></cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+        <HBox alignment="center_right">
+            <Label text="Total: "/> <Text fx:id="totalTxt" text="0.00"/>
+        </HBox>
+        <Button text="Check Build" onAction="#handleCheck"/>
+        <Button fx:id="remBtn" text="Remove Selected from Build" disable="true" onAction="#handleRem"/>
+        <Button text="Close" onAction="#handleClose"/>
+</VBox>
+
